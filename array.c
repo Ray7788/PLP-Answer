@@ -27,3 +27,5 @@ int main(int argc, char *argv[]) {
     }
 
 }
+
+// expected "1 2 3 4 5 6", not "0 2 3 4 5 6 "
