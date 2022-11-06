@@ -10,7 +10,7 @@ int main(int argc, char *argv[]) {
         array[i-1] = atoi(argv[i]);
     }
 
-//   按照升序排序
+//   按照升序排序 ascending order
     for (int i = 0; i < argc-1; i++){
         for (int j = i + 1; j < argc-1; j++){
             if (array[i] > array[j]){
@@ -21,7 +21,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-  打印输出
+//   打印输出print
     for (int j = 0; j < argc-1; j++ ){
         printf("%d ", array[j]);
     }
