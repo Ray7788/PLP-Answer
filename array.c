@@ -6,8 +6,9 @@ int main(int argc, char *argv[]) {
     int a;
 
 //   由command line存入指定的数组array
-    for(int i = 1; i <argc-1; i++){
-        array[i-1] = atoi(argv[i]);
+// 修改下标就成功了
+    for(int i = 0; i <argc-1; i++){
+        array[i] = atoi(argv[i+1]);
     }
 
 //   按照升序排序 ascending order
@@ -28,4 +29,3 @@ int main(int argc, char *argv[]) {
 
 }
 
-// expected "1 2 3 4 5 6", not "0 2 3 4 5 6 "
