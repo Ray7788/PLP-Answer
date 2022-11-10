@@ -1,0 +1,7 @@
+command line parameter
+https://www.geeksforgeeks.org/command-line-arguments-in-c-cpp/
+
+array ascending
+https://www.tutorialspoint.com/c-program-to-sort-an-array-in-an-ascending-order
+
+https://stackoverflow.com/questions/65704186/how-to-write-a-function-that-receives-two-pointer-as-argument
