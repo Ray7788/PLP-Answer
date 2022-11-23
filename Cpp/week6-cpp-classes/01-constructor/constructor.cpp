@@ -6,18 +6,28 @@ class Pair {
         int y;
 
     public: 
-        Pair(int x, int y):
-            x{x},y{y} {}; 
-         
-};
+        Pair(){
+          x = 10;
+          y = 20;
+        }
+
+    		void getValueA()                 //成员函数（打印成员变量值）
+        {
+          std::cout<<a;
+        };
+
+        void getValueB()                 //成员函数（打印成员变量值）
+        {
+          std::cout<<b;
+        };
 
 int main(int argc, char **argv) {
-    Pair p(10,20);
+    Pair p;
 
     // p.x = 10;
     // p.y = 20;
 
-	std::cout << "p.x is " << p.x << ", p.y is " << p.y << "\n";
+	std::cout << "p.x is " << p.getvalueA << ", p.y is " << p.getvalueB << "\n";
 
     return 0;
 }
