@@ -1,25 +1,26 @@
 #include <iostream>
 
 class Pair {
-    private:
-        int x;
-        int y;
+private:
+    int x;
+    int y;
 
-    public: 
-        Pair(){
-          x = 10;
-          y = 20;
-        }
+public: 
+    Pair(int x, int y);
+    
+    // void getValueA()                 //成员函数（打印成员变量值）
+    // {
+    //   std::cout<<a;
+    // };
 
-    		void getValueA()                 //成员函数（打印成员变量值）
-        {
-          std::cout<<a;
-        };
+    // void getValueB()                 //成员函数（打印成员变量值）
+    // {
+    //   std::cout<<b;
+    // };
+}
 
-        void getValueB()                 //成员函数（打印成员变量值）
-        {
-          std::cout<<b;
-        };
+Pair::Pair(int x, int y) :
+x{x}, y{y} {}
 
 int main(int argc, char **argv) {
     Pair p;
