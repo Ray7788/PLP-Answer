@@ -24,6 +24,27 @@ int Complex::get_imaginary_part() {
 }
 
 /* implement add_and_print here */
+void add_and_print(Complex c1, Complex c2){
+    int r1 = c1.get_real_part();
+    int im1 = c1.get_imaginary_part();
+    int r2 = c2.get_real_part();
+    int im2 = c2.get_imaginary_part();
+    int rTotal = r1 + r2;
+    int imTotal = im1 + im2;
+    // Complex(rTotal,imTotal);
+    std::cout << "(" << r1 << "+" << im1 << "i" << ")" << " + " << "(" << r2 << "+" << im2 << "i" << ")" << " = " << "(" << rTotal << "+" << imTotal << "i" << ")" << "\n";
+}
+
+void add_and_print(double d1, double d2){
+    int res = d1 + d2;
+    std::cout << d1 << " + " << d2 << " = " << res << "\n";
+}
+
+void add_and_print(int i1, int i2){
+    int res = i1 + i2;
+    std::cout << 11 << " + " << i2 << " = " << res << "\n";
+
+}
 
 int main(int argc, char **argv) {
     Complex c1(4, 5);
