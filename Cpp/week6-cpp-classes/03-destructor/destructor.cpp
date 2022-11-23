@@ -6,12 +6,19 @@ private:
     int y;
 public:
     Pair(int x, int y);
+    ~Pair();
     void print();
 };
 
-Pair::Pair(int x, int y) :
-    x{x}, y{y} {}
+Pair::Pair(int x, int y){
+    this->x = x;
+    this->y = y;
+}
 
+Pair::~Pair(){
+// empty
+}
+    
 void Pair::print() {
     std::cout << "Pair x: " << x << ", y: " << y << "\n";
 }
@@ -22,11 +29,21 @@ private:
     int val;
 public:
     TopLevel(int x, int y, int val);
+    ~TopLevel();
     void print();
 };
 
-TopLevel::TopLevel(int x, int y, int val) : 
-    p{new Pair(x, y)}, val{val} {}
+TopLevel::TopLevel(int x, int y, int val) {
+    // {new Pair(x, y)}, val{val} {}
+
+    p = new Pair(x,y);
+    this->val = val;
+
+}
+
+TopLevel::~TopLevel(){
+    delete p;
+}
 
 void TopLevel::print() {
     std::cout << "Toplevel val: " << val << ", with pair:\n";
