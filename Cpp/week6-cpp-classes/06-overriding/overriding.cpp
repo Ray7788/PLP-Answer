@@ -9,11 +9,17 @@ public:
 };
 
 class Car : public Vehicle {
-    /* ... */
+public:
+    int get_number_of_wheels(){
+        return 4;
+    }
 };
 
 class Bike : public Vehicle {
-    /* ... */
+public:
+    int get_number_of_wheels(){
+        return 2;
+    }
 };
 
 int main(int argc, char **argv) {
