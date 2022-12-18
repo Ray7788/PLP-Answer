@@ -11,12 +11,12 @@ void init_vector(std::vector<int>& v) {
 		v[i] = rand() & 0xf;
 }
 
-
+// 迭代器Only change this iterator:  aa: single element in a
 void copy_odds(std::vector<int>& a, std::vector<int>& b)
 {
-    for (int i = 0; i < a.size(); ++i) {
-		if (a[i] % 2 == 1) {
-			b.push_back(a[i]);
+    for (auto &aa:a) {
+		if (aa % 2 == 1) {
+			b.push_back(aa);
 		}
     }
 }
