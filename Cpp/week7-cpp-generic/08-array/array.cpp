@@ -2,49 +2,52 @@
 #include <cstdlib>
 #include <iostream>
 #include <algorithm> // for min and max
+#include <array>
 
-#define SIZE1 100
-#define SIZE2 154
+#define SIZE1 (500 * 1000)
+#define SIZE2 (500 * 1024)
 
-void add_arrays(
-        int *array1, int *array2, int *result_array,
-        int size1, int size2)
+// std::array implementation
+// use templete
+template <size_t N1, size_t N2>
+void add_arrays2(
+        std::array<int, N1>& arr1,
+        std::array<int, N2>& arr2,
+        std::array<int, std::max(N1, N2)>& result)
 {
-    int max_size = std::max(size1, size2);
+    for (int i = 0; i < result.size(); ++i) {
+        if (i < arr1.size())
+            result[i] = arr1[i];
 
-    for (int i = 0; i < max_size; ++i) {
-        if (i < size1)
-            result_array[i] = array1[i];
-
-        if (i < size2)
-            result_array[i] += array2[i];
+        if (i < arr2.size())
+            result[i] += arr2[i];
     }
 }
 
-void init_array(int *array, int size) {
-    for (int i = 0; i < size; ++i)
-        array[i] = i;
+template <size_t N>
+void init_array2(std::array<int, N>& arr) {
+    for (int i = 0; i < arr.size(); ++i)
+        arr[i] = i;
 }
 
 int main(int argc, char **argv) {
+    std::array<int, SIZE1> array1;
+    std::array<int, SIZE2> array2;
 
-	int array1[SIZE1];
-	int array2[SIZE2];
+    // std::max returns a compile-time constant when its arguments are compile-time constants 必须是常量const！！
+    const int result_size = std::max(SIZE1, SIZE2);
+    std::array<int, result_size> result_array;
 
-    init_array(array1, SIZE1);
-    init_array(array2, SIZE2);
+    init_array2(array1);
+    init_array2(array2);
 
-	int result_size = std::max(SIZE1, SIZE2);
-	int result_array[result_size];
+    add_arrays2(array1, array2, result_array);
 
-	for (int i = 0; i < result_size; ++i)
-		result_array[i] = 0;
-
-    add_arrays(array1, array2, result_array, SIZE1, SIZE2);
-
-    for (int i = 0; i < result_size; ++i)
+    for (int i = 0; i < result_size; ++i){
         std::cout << result_array[i] << " ";
-    std::cout << "\n";
+    }
 
     return 0;
 }
+
+// 注：可参照week7最后一个练习 chrono.cpp
