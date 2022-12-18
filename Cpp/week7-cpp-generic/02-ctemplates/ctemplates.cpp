@@ -1,35 +1,43 @@
 #include <iostream>
 
+// 使用类模板<T>，进行整体替换
+// 但是批改脚本识别不到使用了类模板，虽然输出结果是对的
+template <class T>
 class Complex {
 private:
-    int real{0};
-    int imag{0};
+    T real{0};
+    T imag{0};
 
 public:
     Complex() = default;
-    Complex(int real_part, int imaginary_part);
-    int get_real_part();
-    int get_imaginary_part();
+    Complex(T real_part, T imaginary_part);
+    T get_real_part();
+    T get_imaginary_part();
     
     Complex operator+(Complex& other);
 };
 
-Complex::Complex(int real_part, int imaginary_part) 
+template <class T>
+Complex<T>::Complex(T real_part, T imaginary_part) 
     : real{real_part}, imag{imaginary_part} {};
 
-int Complex::get_real_part() {
+template <class T>
+T Complex<T>::get_real_part() {
     return real;
 }
 
-int Complex::get_imaginary_part() {
+template <class T>
+T Complex<T>::get_imaginary_part() {
     return imag;
 }
 
-Complex Complex::operator+(Complex& other) {
+template <class T>
+Complex<T> Complex<T>::operator+(Complex<T>& other) {
     return Complex(real + other.real, imag + other.imag);
 }
 
-std::ostream& operator<<(std::ostream& out, Complex c) {
+template <class T>
+std::ostream& operator<<(std::ostream& out, Complex<T> c) {
     return std::cout << "(" << c.get_real_part() << "+" << c.get_imaginary_part() << "i)";
 }
 
