@@ -2,55 +2,46 @@
 #include <cstdlib>
 #include <iostream>
 #include <algorithm> // for min and max
+#include <vector>
 
-void add_arrays(
-        int *array1, int *array2, int *result_array,
-        int size1, int size2)
-{
-    int max_size = std::max(size1, size2);
+#define SIZE1 (500 * 1000)
+#define SIZE2 (500 * 1024)
 
-    for (int i = 0; i < max_size; ++i) {
-        if (i < size1)
-            result_array[i] = array1[i];
-
-        if (i < size2)
-            result_array[i] += array2[i];
-    }
+// std::vector implementation
+void init_array3(std::vector<int>& arr) {
+    for (int i = 0; i < arr.size(); ++i)
+        arr[i] = i;
 }
 
-void init_array(int *array, int size) {
-    for (int i = 0; i < size; ++i)
-        array[i] = i;
+void add_arrays3(
+        std::vector<int>& arr1,
+        std::vector<int>& arr2,
+        std::vector<int>& result)
+{
+    for (int i = 0; i < result.size(); ++i) {
+        if (i < arr1.size())
+            result[i] = arr1[i];
+
+        if (i < arr2.size())
+            result[i] += arr2[i];
+    }
 }
 
 int main(int argc, char **argv) {
-    int size1, size2, result_size;
-    int *array1, *array2, *result_array;
+    std::vector<int> array1(SIZE1);
+    std::vector<int> array2(SIZE2);
+    int result_size = std::max(SIZE1, SIZE2);
+    std::vector<int> result_array(result_size);
 
-    if (argc != 3) {
-        std::cout << "Usage: " << argv[0] << " <size array 1> <size array 2>\n";
-        return -1;
-    }
+    init_array3(array1);
+    init_array3(array2);
 
-    size1 = atoi(argv[1]);
-    size2 = atoi(argv[2]);
-    result_size = std::max(size1, size2);
+    add_arrays3(array1, array2, result_array);
 
-    array1 = (int *)malloc(size1 * sizeof(int));
-    array2 = (int *)malloc(size2 * sizeof(int));
-    result_array = (int *)malloc(result_size * sizeof(int));
-
-    init_array(array1, size1);
-    init_array(array2, size2);
-
-    add_arrays(array1, array2, result_array, size1, size2);
-
-    for (int i = 0; i < result_size; ++i)
+    for (int i = 0; i < result_size; ++i){
         std::cout << result_array[i] << " ";
-    std::cout << "\n";
-
-    free(array1);
-    free(array2);
-    free(result_array);
+    }
     return 0;
 }
+
+// 注：可参照week7最后一个练习 chrono.cpp
