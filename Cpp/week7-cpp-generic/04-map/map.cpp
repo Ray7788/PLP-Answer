@@ -1,11 +1,11 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
-#include <vector>
+#include <map>
 
 #define SIZE (32 * 1024 * 1024)
 
-int dot(std::vector<int>& a, std::vector<int>& b)
+int dot(std::map<int, int>& a, std::map<int, int>& b)
 {
     int sum = 0;
     for (int i = 0; i < a.size(); ++i) {
