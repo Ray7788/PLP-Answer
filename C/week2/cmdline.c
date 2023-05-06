@@ -3,6 +3,7 @@
 
 
 int main(int argc, char *argv[]) {
+    // Use the type double rather than float to hold these values in order to pass the checks.
     double a,b,c;
 
 //   注意使用的是atof
@@ -19,3 +20,7 @@ int main(int argc, char *argv[]) {
     printf("%f \n", abc);
  
 }
+
+// Terminal Command
+// gcc cmdline.c -o cmdline 
+// ./cmdline

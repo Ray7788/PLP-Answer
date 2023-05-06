@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int main(int argc, char *argv[]) {
+    // argc is an integer variable that stores the number of command-line arguments passed by the user including the name of the program. 
     int array[argc-1];
     int a;
 
@@ -23,9 +24,10 @@ int main(int argc, char *argv[]) {
     }
 
 //   打印输出print
-    for (int j = 0; j < argc-1; j++ ){
+    for (int j = 0; j < argc-1; j++){
         printf("%d ", array[j]);
     }
 
 }
 
+// check50 -l --ansi-log olivierpierre/comp26020-problems/2022-2023/week2-c-basics/09-array
