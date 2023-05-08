@@ -18,9 +18,10 @@ int main(int argc, char *argv[]) {
 
     printf("input string2:\n");
     str2 = malloc(MAX_SIZE); 
-    if (!str1) return -1;
+    if (!str2) return -1;
     fgets(str2, MAX_SIZE, stdin);
 
+    // strcmp: if same return 0, or return 1  
     if(!strcmp(str1,str2)){
         printf("strings are similar");
     }else{
