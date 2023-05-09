@@ -13,7 +13,7 @@ void array_print(void *ptr, int size, array_type type) {
     switch (type){
         case INT:
             for (int i = 0; i < size - 1; i++){
-                printf("%d, ", ( (int *) ptr)[i]);
+                printf("%d, ", ((int *) ptr)[i]);
             }
             printf("%d]\n", ((int *) ptr)[size - 1]);
             break;
@@ -21,7 +21,7 @@ void array_print(void *ptr, int size, array_type type) {
             for (int i = 0; i < size - 1; i++){
                 printf("%c, ", ((char *) ptr)[i]);
             }
-            printf("%c]\n", ( (char *) ptr)[size - 1]);
+            printf("%c]\n", ((char *) ptr)[size - 1]);
             break;
         case FLOAT:
             for (int i = 0; i < size - 1; i++){
@@ -43,3 +43,6 @@ int main(int argc, char **argv) {
 
     return 0;
 }
+
+// Use week4!!!
+// check50 -l --ansi-log olivierpierre/comp26020-problems/2022-2023/week4-compilation/05-cast
