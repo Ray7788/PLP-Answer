@@ -1,19 +1,14 @@
 #include <iostream>
 
 /* Class definition and member function implementation here */
-class Vehicle
-{
+class Vehicle{
 private:
     int mileage;
 
 public:
-    Vehicle(int mileage){
-        this->mileage = mileage;
-    }
+    Vehicle(int mileage): mileage(mileage){}
 
-    ~Vehicle(){
-
-    }
+    ~Vehicle(){}
     int get_mileage();
 };
 
@@ -22,9 +17,7 @@ int Vehicle::get_mileage(){
 }
 
 ////////////////////////////////////////////////////////
-
-class Car : public Vehicle
-{
+class Car : public Vehicle{
 private:
     int steering_wheels;
 public:
@@ -42,10 +35,8 @@ int Car::get_steering_wheels(){
     return steering_wheels;
 }
 
-//////////////////////////////
-
-class Motorbike : public Vehicle
-{
+////////////////////////////////////////////////////////
+class Motorbike : public Vehicle{
 private:
     int cc_class;
 public:
@@ -61,7 +52,7 @@ int Motorbike::get_cc_class(){
     return cc_class;
 }
 
-
+////////////////////////////////////////////////////////
 int main(int argc, char **argv) {
     Vehicle v(20000);  // a Vehicle with mileage = 20000 miles
     Car c1(10000, 2);  // a Car with mileage = 10000 miles and 2 steering wheels
