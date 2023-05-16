@@ -1,15 +1,19 @@
 #include <iostream>
 
 class Rectangle {
+// set to private
 private:
     float length;
     float width;
 public:
+    // constructor 
     Rectangle(float len, float wid){
         length = len;
         width = wid;  
         // std::cout << "Constructor call\n";
     }
+
+    // abstract
     float rectangle_perimeter(void);
 
     float get_length(void){
