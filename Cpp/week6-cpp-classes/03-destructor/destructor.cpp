@@ -10,10 +10,7 @@ public:
     void print();
 };
 
-Pair::Pair(int x, int y){
-    this->x = x;
-    this->y = y;
-}
+Pair::Pair(int x, int y): x(x), y(y){}
 
 // destructor
 Pair::~Pair(){
