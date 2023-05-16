@@ -15,6 +15,7 @@ Pair::Pair(int x, int y){
     this->y = y;
 }
 
+// destructor
 Pair::~Pair(){
 // empty
 }
@@ -22,6 +23,7 @@ Pair::~Pair(){
 void Pair::print() {
     std::cout << "Pair x: " << x << ", y: " << y << "\n";
 }
+
 
 class TopLevel {
 private:
@@ -38,9 +40,9 @@ TopLevel::TopLevel(int x, int y, int val) {
 
     p = new Pair(x,y);
     this->val = val;
-
 }
 
+// destructor
 TopLevel::~TopLevel(){
     delete p;
 }
@@ -49,6 +51,7 @@ void TopLevel::print() {
     std::cout << "Toplevel val: " << val << ", with pair:\n";
     p->print();
 }
+
 
 int main(int argc, char **argv) {
     TopLevel t(10, 20, 30);
