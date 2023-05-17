@@ -1,0 +1,11 @@
+fn main() {
+    let i = 10;
+    let j = i;
+
+    //need to declare i with 'let mut'
+    // or we can use let 1 = 11;  "shadowing" 
+    i = 11;
+
+    println!("{}",i);
+    println!("{}",j);
+}
