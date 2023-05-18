@@ -9,3 +9,5 @@ fn main() {
     println!("{}",i);
     println!("{}",j);
 }
+
+// error[E0384]: cannot assign twice to immutable variable `i`
