@@ -1,6 +1,6 @@
 * Ownership
 * Borrowing 
-* Mutability
 * Basic
+* Mutability
 * Lifetimes
 *  Mutability
