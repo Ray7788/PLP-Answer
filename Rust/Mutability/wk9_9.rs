@@ -4,5 +4,6 @@ fn main() {
 
     s.push_str(" world!");
 
+    // 正常输出
     println!("{}",s);
 }

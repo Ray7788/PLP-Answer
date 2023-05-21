@@ -7,7 +7,7 @@ fn main() {
 
     t.push_str(" And universe!");
 
-    //causes error: try to borrow immutable s
+    // causes error: try to borrow immutable s
     println!("{}",s);
     println!("{}",t);
 }
