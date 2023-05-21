@@ -16,7 +16,8 @@ fd x = x + 1
 -- main = print(fd (10::Int))
 -- main = print((1::Int) + (1::Integer))
 
-big :: Int -> Bool
+-- 检测是否大于10
+big :: Integer -> Bool
 big x = x > 10
 
 -- main = print(big 11)
@@ -33,13 +34,15 @@ j x = True
 -- What is the type of j?
 -- We can give it several types, like
 
+-- 不添加constructor会进行通用处理
 -- jj :: Int -> Bool
 jj x = False
 
 -- Note we can't give it type Bool -> Int!
 -- But the original has a strange feature:
 
-main = print (jj 1 && jj True)
+-- 会输出False
+-- main = print (jj 1 && jj True)
 
 -- Is this 'dynamic typing'? No it is called
 -- 'parametic polymorphism'. We can use
@@ -48,3 +51,5 @@ main = print (jj 1 && jj True)
 -- 泛型
 jjj :: a -> Bool
 jjj x = False
+
+main = print (jjj 2)  -- 会输出False
