@@ -33,8 +33,12 @@ stimes x y = x * y
 -- This means it is safe to apply stimes to bottom in the second arguments
 -- main = print(0 `stimes` bottom)
 
+-- 错误信息
 eInt :: Int
 eInt = error "Hang on, I'm thinking..."
+
+eBool :: Bool
+eBool = error "Hang on, I'm thinking..."
 
 -- 自己尝试
 addUp :: (Int, Int) -> Int
@@ -45,11 +49,6 @@ addUp (m, n) = m + n
 -- 会报错！！ 因为执行addUp会按照声明顺序先带入 addUp (m, 0) = m进行尝试，所以会检测到第2个是error
 -- main = print (addUp (0, eInt))
 
--- Something interesting happens for more complicated kinds of data, like pairs.
-
-eBool :: Bool
-eBool = error "Hang on, I'm thinking..."
-
 -- the boolean operators && and || are impememnted in this way:
 
 -- main = print(False && eBool)
@@ -58,6 +57,7 @@ eBool = error "Hang on, I'm thinking..."
 
 -- So && is strict in its first argument, but non-strict in its second argument.
 
+-- Something interesting happens for more complicated kinds of data, like pairs.
 strangePair = (eInt, eBool)
 
 ePair = error "Hang on, I'm thinking..."
@@ -79,8 +79,7 @@ j p = 10
 -- so there is a dfference between an error of type (a,b), and a pair of errors!
 -- we can pattern match on a pair of errors sucessfully, as long as we don't try to use
 -- the components. But a pair which is an error in itself can't even be pattern matched on.
--- Some people would say that the function h is strict in the 'spine' (i.e. shape) of the
--- pair, but non-strict in the components, whereas j is non-strict in the spine.
+-- Some people would say that the function h is strict in the 'spine' (i.e. shape) of the pair, but non-strict in the components, whereas j is non-strict in the spine.
 
 -- This is necessary if we want the fst and snd operations, which get the first and
 -- second components of a pari, to obey the expected equations
@@ -97,11 +96,10 @@ j p = 10
 -- p == (fst p, snd p), because of what happens when the components are errors
 
 -- 一对错误 one pair of errors
--- ePairB = (fst ePair, snd ePair)
+ePairB = (fst ePair, snd ePair)
 
--- 正确 检查输入类型正确就直接输出值
+-- 正确 检查输入类型正确就直接输出值,不会进一步细查
 -- main = print(h ePairB)
 
 -- so ePairb behaves differently to ePair when passed to h.
--- This is why it is usually easier to reason about how function behave when their
--- arguments are not errors.
+-- This is why it is usually easier to reason about how function behave when their arguments are not errors.
