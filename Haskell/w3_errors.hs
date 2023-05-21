@@ -5,8 +5,7 @@
 
 x = x
 
--- the meaning of this expression is undefined. It is sometimes called
--- 'bottom'  "永不停止"
+-- the meaning of this expression is undefined. It is sometimes called 'bottom'  "永不停止"
 
 bottom = bottom
 
@@ -16,11 +15,11 @@ bottom = bottom
 
 -- We have seen other runtime errors, like what happens when we
 -- evaluate a function defined by pattern matching on an argument where it is *not defined*
--- Non-exhaustive patterns in function badhead
 
 badhead :: [Int] -> Int
 badhead (x : xs) = x
 
+-- Non-exhaustive patterns in function badhead
 -- uhoh = badhead []
 -- main = print (uhoh)
 
@@ -54,21 +53,18 @@ g x = 5
 
 -- main = print(g eInt)
 
--- just prints 5 !
--- this means it is safe to call g with the value bottom!
+-- just prints 5 ! this means it is safe to call g with the value bottom!
 
 -- main = print(g bottom)
 
--- even though trying to print bottom will cause an infinite loop, Haskell never evaluates
--- the unused argument. We say that f is *strict* in its argument, but g is *not strict*
--- in its argument. A function is strict in an argument if and only if when that argument is
--- bottom or an error, the value of the function is bottom or an error.
+-- even though trying to print bottom will cause an infinite loop, Haskell never evaluates the unused argument. 
+-- We say that f is *strict* in its argument, but g is *not strict* in its argument. A function is strict in an argument if and only if when that argument is bottom or an error, the value of the function is bottom or an error.
 
 -- Let's see if the * operator is strict or not in its arguments running
--- main = print(0 * (eInt))
+main = print(0 * (eInt))
 -- strict in the second argument
 
 -- main = print((eInt) * 0)
 -- strict in the first argument
 
-main = print ((5) * 0)
+-- main = print (5 * 0)
