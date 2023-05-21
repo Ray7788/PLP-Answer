@@ -65,7 +65,9 @@ w =
   let x = 5
     in let f = \n -> x
         in let x = 6
-            in -- in f 0 -- 此时会输出5
-                x -- 此时会输出6
+            in f 0 -- 此时会输出5
+                -- in x -- 此时会输出6
+
+-- 看let x = n in x..., 也就是functio 前一行的变量声明
 
 main = print (y, z, w)
