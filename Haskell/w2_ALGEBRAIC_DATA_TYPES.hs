@@ -20,7 +20,7 @@ isOn Off = False
 -- because we haven't told Haskell how to print
 -- a value of this type. We look at that in week 11
 
--- we can also attach data from existing types
+-- we can also attach data from existing types基于现存的基本类型构造出新的自定义数据类型
 
 data MyIntPair = IntPair Int Int
 
@@ -33,7 +33,7 @@ mySumPair (IntPair x y) = x + y
 myfst :: MyIntPair -> Int
 myfst (IntPair x _) = x
 
-main = print (myfst (IntPair 1 2))
+-- main = print (myfst (IntPair 1 2))
 
 -- we can combine the ideas of enums and data
 -- fields
@@ -81,4 +81,6 @@ data MyList a = Empty | Append a (MyList a)
 myHead Empty = Nothing
 myHead (Append x l) = Just x
 
+-- (Append 11 Empty)输出11
 -- main = print(myHead (Append 10 (Append 11 Empty)))
+-- main = print(myHead (Append 11 Empty))
