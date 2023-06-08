@@ -1,4 +1,4 @@
-# UoM Year2 COMP26020 exercises online OJ练习题及其答案
+# UoM Year2 COMP26020 exercises OJ Sample Answer ｜ PLP练习题及其答案
 ### This repository contains answers to optional, formative exercises for Programming Languages & Paradigms.
 #### Includes C, C++, Haskell, Rust
 
